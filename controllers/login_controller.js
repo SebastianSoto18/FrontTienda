@@ -12,7 +12,7 @@ const form =  document.getElementById("login");
         token = await token.json();
         if (token.access_token != null){
             document.cookie = "token="+token.access_token;
-            window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/home.html";
+            window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/home.html;
         }else{
             Swal.fire({
                 text:"Usuario o contraseña incorrectos"+'!',
