@@ -15,7 +15,7 @@ try{
     text:"No se ha iniciado sesión"+'!',
     icon: "error"
 });
-    window.location.href = "http://localhost:5500/index.html";
+    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/index.html";
 }
 
 export const user_id = decodeToken(document.cookie.split("=")[1])["user_id"];
