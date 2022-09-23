@@ -53,7 +53,7 @@ function createProduct(product) {
 const newp = document.getElementById("newproducto");
 
 newp.addEventListener("click", () => {
-    window.location.href = "http://localhost:5500/pages/newproduct.html";
+    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/newproduct.html";
 });
 
 
