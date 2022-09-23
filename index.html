@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css" >
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Login</title>
+</head>
+<body>
+        <div class="form nover">
+            <div class="form-toggle"></div>
+            <div class="form-panel one">
+            <div class="form-header">
+                <h1>STORE LOGIN</h1>
+            </div>
+            <div class="form-content">
+                <form id="login">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required="required"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Log In</button>
+                </div>
+                </form>
+            </div>
+            </div>
+            <div class="form-panel two">
+            <div class="form-header">
+                <h1>Registrate</h1>
+            </div>
+            <div class="form-content">
+                <form id="singup">
+                <div class="form-group">
+                    <label for="username">Nombre completo</label>
+                    <input id="usernameregis" type="text" name="username" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input id="passwordregis" type="password" name="password" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="cpassword">Confirmar Contraseña</label>
+                    <input id="cpassword" type="password" name="cpassword" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electronico</label>
+                    <input id="emailregis" type="email" name="email" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefono</label>
+                    <input id="phone" type="number" name="tel" required="required"/>
+                </div>
+                <div class="form-group">
+                    <div id="enviar">Registrarse</div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+</body>
+<script src="./animated/login.js"></script>
+<script src="./controllers/login_controller.js" type="module"></script>
+<script src="./controllers/register_controller.js" type="module"></script>
+</html>
