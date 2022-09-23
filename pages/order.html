@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css" >
+    <title>Document</title>
+</head>
+<body>
+    <div class="form nover">
+        <div class="form-toggle"></div>
+        <div class="form-panel one">
+        <div class="form-header">
+            <h1>Arma tu Pedido</h1>
+        </div>
+        <div class="form-content" id="formu">
+            <form id="login">
+            <div class="form-group">
+                <label for="code">Ingrese el codigo de un producto que quiera comprar</label>
+                <input id="code" type="text" name="code" required="required" maxlength="8"/>
+            </div>
+
+            <div class="form-group">
+                <label for="Quantity">Ingrese cuantas unidades desearia comprar</label>
+                <input id="Quantity" type="text" name="code" required="required" />
+            </div>
+
+            <div class="form-group" id="buscar">
+                <button type="submit">Buscar</button>
+            </div>
+            </form>
+
+
+</body>
+<script src="../controllers/orders_controller.js"></script>
+</html>

@@ -14,12 +14,18 @@ singup.addEventListener("click",async  (e) => {
     const phone = document.getElementById("phone").value;
 
     if( !(email != "" && password != "" && confirm_password != "" && name != ""  && phone != "")){
-    
+        Swal.fire({
+            text:"Por favor llene todos los campos"+'!',
+            icon: "error"
+        });
         return;
     }
 
     if(password != confirm_password){
-   
+        Swal.fire({
+            text:"Las contraseñas no coinciden"+'!',
+            icon: "error"
+        });
         return;
     }
 
@@ -28,8 +34,21 @@ singup.addEventListener("click",async  (e) => {
         
     if (!(code == 201)){
         if(code == 400){
+            Swal.fire({
+                text:"El correo ya se encuentra registrado"+'!',
+                icon: "error"
+            });
+            
             return;
         }
     }
+
+    Swal.fire({
+        text:"Usuario registrado con exito"+'!',
+        icon: "success"
+    });
+
+
+    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/login.html";
 
 });

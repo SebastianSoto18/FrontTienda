@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css" >
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="form nover">
+        <div class="form-toggle"></div>
+        <div class="form-panel one">
+        <div class="form-header">
+            <h1>Arma tu Pedido</h1>
+        </div>
+        <div class="form-content" id="formu">
+            <form id="np">
+            <div class="form-group">
+                <label for="code">Ingrese el codigo de tu producto</label>
+                <input id="code" type="text" name="code" required="required" maxlength="8"/>
+            </div>
+
+            <div class="form-group">
+                <label for="Quantity">Ingrese cuantas unidades se van a avender</label>
+                <input id="Quantity" type="text" name="Quantity" required="required" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Ingrese el nombre del producto</label>
+                <input id="name" type="text" name="name" required="required" maxlength="20"/>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Ingrese cuantos es el costo por unidad</label>
+                <input id="price" type="text" name="price" required="required" maxlength="8"/>
+            </div>
+
+            <div class="form-group" id="enviar">
+                <button type="submit">Enviar</button>
+            </div>
+            </form>
+
+
+</body>
+<script type="module" src="../controllers/new_product_controller.js"></script>
+</html>
