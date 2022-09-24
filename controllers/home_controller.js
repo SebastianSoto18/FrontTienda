@@ -21,7 +21,6 @@ const logout = document.getElementById("salir");
 
 logout.addEventListener("click", () => {
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/index.html";
     });
 
 
@@ -50,15 +49,7 @@ function createProduct(product) {
     return li;
 }
 
-const newp = document.getElementById("newproducto");
-
-newp.addEventListener("click", () => {
-    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/newproduct.html";
-});
-
-
 products.forEach(product => {
-    console.log(product);
     lista.appendChild( createProduct(product) );
 }
 );
