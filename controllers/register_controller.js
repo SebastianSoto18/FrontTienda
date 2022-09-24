@@ -43,7 +43,7 @@ singup.addEventListener("click",async  (e) => {
         }
     }
 
-    Swal.fire({
+    await Swal.fire({
         text:"Usuario registrado con exito"+'!',
         icon: "success"
     });
