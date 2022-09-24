@@ -21,8 +21,8 @@ const form =  document.getElementById("login");
         }
 
 
-        token = await token.json();
-        document.cookie = "token="+token.access_token;
+        const data = await token.json();
+        document.cookie = "token="+data.access_token;
         window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/home.html";
 
         
