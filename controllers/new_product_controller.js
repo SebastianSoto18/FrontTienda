@@ -10,7 +10,7 @@ np.addEventListener("submit", async (e) => {
     const price = document.getElementById("price").value;
     const Quantity = document.getElementById("Quantity").value;
 
-    const data = await products_service.create_product(name, code, price, Quantity).catch((err) => { 
+    await products_service.create_product(name, code, price, Quantity).catch((err) => { 
         Swal.fire({
             text:"Error al crear el producto"+'!',
             icon: "error"

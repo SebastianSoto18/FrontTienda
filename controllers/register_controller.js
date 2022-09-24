@@ -1,6 +1,5 @@
 import  {login_services}  from "../services/login_services.js";
 
-
 const singup = document.getElementById("enviar");
 
 singup.addEventListener("click",async  (e) => {
