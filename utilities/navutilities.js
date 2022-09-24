@@ -1,4 +1,4 @@
-import { user_service } from "../services/user_services.js";
+import {user_service} from "../services/user_services.js"
 
 function decoteJWT(token) {
     const base64Url = token.split(".")[1];
