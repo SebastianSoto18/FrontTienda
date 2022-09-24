@@ -19,5 +19,5 @@ document.getElementById("user_email").innerHTML = email;
 const logout = document.getElementById("salir");
 
 logout.addEventListener("click", () => {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     });
