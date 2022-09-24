@@ -8,12 +8,11 @@ const form =  document.getElementById("login");
         const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         
-        let token = await login_services.login(email, password)
+        const token = await login_services.login(email, password);
 
 
+        if(token.status!=200){          
 
-        if(token.status == 401 && token.status == 400){
-            console.log(1)
             Swal.fire({
                 text:"usuario o contraseña incorrectos",
                 icon:"error"
