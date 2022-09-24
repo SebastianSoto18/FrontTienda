@@ -1,10 +1,16 @@
 import { products_service } from "../services/product_services.js";
+import { data_user } from "./home_controller.js";
 
 const np = document.getElementById("np");
 
 np.addEventListener("submit", async (e) => {
 
     e.preventDefault();
+
+    document.getElementById("user_name").innerHTML = data_user.name;
+    document.getElementById("user_email").innerHTML = data_user.email; 
+
+
     const name = document.getElementById("name").value;
     const code = document.getElementById("code").value;
     const price = document.getElementById("price").value;
