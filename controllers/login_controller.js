@@ -12,7 +12,7 @@ const form =  document.getElementById("login");
 
 
 
-        if(token == 401){
+        if(token == 401 && token == 400){
             Swal.fire({
                 text:"usuario o contraseña incorrectos",
                 icon:"error"
