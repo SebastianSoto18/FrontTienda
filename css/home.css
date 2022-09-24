@@ -22,6 +22,11 @@ img {
     vertical-align: middle;
 }
 
+
+#salir:hover{
+    cursor: pointer;
+}
+
 #productos{
     display: flex;
     flex-wrap: wrap;
