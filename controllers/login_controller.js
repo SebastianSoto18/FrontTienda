@@ -11,8 +11,8 @@ const form =  document.getElementById("login");
         let token = await login_services.login(email, password)
 
 
-        console.log(token)
-        if(token.status == 401){
+
+        if(token == 401){
             Swal.fire({
                 text:"usuario o contraseña incorrectos",
                 icon:"error"
