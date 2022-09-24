@@ -4,7 +4,7 @@ const login=  (email, password) => fetch("https://tiendarest.herokuapp.com/login
         headers:{"Content-type":"application/json"},
         body: JSON.stringify({email: email,password: password})}).then
         ((response) => {
-                return response.status;
+                return response;
         });
 
 
