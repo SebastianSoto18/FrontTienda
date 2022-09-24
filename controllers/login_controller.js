@@ -8,7 +8,7 @@ const form =  document.getElementById("login");
         const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         
-        const token = await login_services.login(email, password);
+        let token = await login_services.login(email, password);
 
 
         if(token.status!=200){          
