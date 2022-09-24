@@ -8,19 +8,22 @@ const form =  document.getElementById("login");
         const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         
-        let token = await login_services.login(email, password).catch(err => {
+        let token = await login_services.login(email, password)
 
+        if(token.status == 401){
             Swal.fire({
-                text:"nombre o contraseña incorrectos",
+                text:"usuario o contraseña incorrectos",
                 icon:"error"
             })
             return;
-        })
+        }
+
 
         token = await token.json();
         document.cookie = "token="+token.access_token;
         window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/home.html";
 
+        
 
     });
 
