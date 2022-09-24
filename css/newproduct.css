@@ -34,7 +34,7 @@ body {
     box-sizing: border-box;
     margin: 100px auto 10px;
     overflow: hidden;
-    width: 95%;
+    max-width: 95%;
     height: auto;
 }
 .form-toggle {
@@ -275,4 +275,10 @@ body {
 .cp-fab {
     background: #fff !important;
     color: #4285f4 !important;
+}
+
+@media (min-width: 1000px){
+    .form{
+        max-width:55%;
+    }
 }
