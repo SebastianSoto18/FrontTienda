@@ -21,8 +21,6 @@ const generarlistas = async (parent, order) => {
     let listadiv= `<div id="accordion-arrow-icon-body-${order}" aria-labelledby="accordion-arrow-icon-heading-${order}">
                     <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
     `;
-
-    console.log(order);
     
     let data_detail = await order_details_service.get_details(order);
     let datajson = await data_detail.json();
@@ -74,7 +72,6 @@ let orders = await order_service.getorderbyID(data_user.id);
 
 if (orders.status == 200) {
   let ordersdecode = await orders.json();
-  console.log(ordersdecode);
   document.querySelector("#nocontent").style = "display:none";
   ordersdecode.forEach(async (order) => {
     await genttarjetas(order.id, order);
