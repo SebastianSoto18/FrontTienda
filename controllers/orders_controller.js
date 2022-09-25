@@ -1,5 +1,6 @@
+import { order_service } from "../services/order_service";
+
 const total = document.getElementById("total");
-const cantidaproductos = document.getElementById("cantidadproductos");
 const tabla = document.getElementById("tabla");
 let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
 const pedir = document.getElementById("pedir");
@@ -175,6 +176,31 @@ function handleButton(){
     }
 }
 
+
+if(pedir!=null){
+pedir.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estas seguro de realizar el pedido?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: `Si`,
+        denyButtonText: `No`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            const quantity_per_products = Object.values(carrito).reduce(( cantidad) =>  String.valueOf(cantidad)+"," ,0);
+
+            console.log(quantity_per_products);
+
+            Swal.fire('Pedido realizado', '', 'success')
+            localStorage.clear();
+            location.reload();
+        } else if (result.isDenied) {
+            Swal.fire('Pedido cancelado', '', 'info')
+        }
+    })
+})
+}
 
 
 handleButton();
