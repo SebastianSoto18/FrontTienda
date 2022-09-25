@@ -23,7 +23,7 @@ const form =  document.getElementById("login");
 
         const data = await token.json();
         document.cookie = "token="+data.access_token;
-        window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/home";
+        window.location.href = "http://127.0.0.1:5500/pages/home.html";
 
         
 

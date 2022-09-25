@@ -3,7 +3,7 @@ const cantidaproductos = document.getElementById("cantidadproductos");
 const tabla = document.getElementById("tabla");
 let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
 
-console.log(cantidaproductos);
+
 
 
 
@@ -14,7 +14,6 @@ if (localStorage.getItem('carrito')) {
 
 const addcarrito= (e) => {
 
-    console.log(e);
     if(e.path[0].classList.contains("btn")){
         setCarrito(e.target.parentElement, false);
     }
@@ -26,12 +25,30 @@ const setCarrito = (product, output) => {
         id: product.querySelector("button").getAttribute("data-id"),
         name: product.querySelector("h1").textContent,
         price: product.querySelector("span").textContent,
+        maxcantidad: product.querySelector("em").textContent,
         cantidad: 1
     }
 
+
+
     if(carrito.hasOwnProperty(productInfo.id)){
+
         productInfo.cantidad = carrito[productInfo.id].cantidad + 1;
-    }
+        
+        if(!(carrito[productInfo.id].cantidad < parseInt(carrito[productInfo.id].maxcantidad))){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'te haz pasado de la cantidad maxima de productos, se a colocado la cantidad maxima de stock en su lugar'
+            });
+            carrito[product.id].cantidad = parseInt(carrito[product.id].maxcantidad);
+        }
+
+        }
+
+
+        
+    
 
     carrito[productInfo.id] = {...productInfo};
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -40,17 +57,28 @@ const setCarrito = (product, output) => {
         pintarCarrito();
     }
 
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Producto agregado al carrito',
+        showConfirmButton: false,
+    });
+
+
 }
 
 function pintarCarrito() {
 
+    if(tabla != null){//error de github pages el cual dice que es null, por alguna razon 
     Object.values(carrito).forEach(product => {
+
         tabla.innerHTML += `
         <tr id="padre" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">${product.name}</th>
             <td id="id">${product.id}</td>
             <td class="py-4 px-6" id="precio">${product.price}</td>
             <td class="py-4 px-6" id="cantidad">${product.cantidad}</td>
+            <td id="maxcantidad" style="display:none;">${product.maxcantidad}</td>
             <td class="py-4 px-6 text-right">
                 <button type="button" id="aumentar" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2 ">+</button>
                 <button type="button" id="disminuir" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-1 mb-2">-</button>
@@ -58,6 +86,8 @@ function pintarCarrito() {
         </tr>
             `
     })
+
+}
 
     pintarFooter();
 
@@ -68,7 +98,7 @@ function pintarCarrito() {
 if(tabla==null){
 }else{
 tabla.addEventListener("click", (e) => {
-    console.log(e);
+
     if(e.path[0].id == "aumentar"){
         aumentar(e.target.parentElement.parentElement);
     }
@@ -78,10 +108,19 @@ tabla.addEventListener("click", (e) => {
 });
 }
 function aumentar(e) {
-    carrito[e.querySelector("#id").textContent].cantidad+=1;
-    tabla.innerHTML = "";
-    pintarCarrito();
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    if(carrito[e.querySelector("#id").textContent].cantidad < parseInt(carrito[e.querySelector("#id").textContent].maxcantidad)){
+
+        carrito[e.querySelector("#id").textContent].cantidad+=1;
+        tabla.innerHTML = "";
+        pintarCarrito();
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No puedes comprar mas de lo que hay en stock!',
+        })
+    }
 }
 
 
@@ -93,9 +132,6 @@ function disminuir(e) {
         delete carrito[e.querySelector("#id").textContent];
     }
 
-    if(Object.keys(carrito).length === 0){
-        total.innerHTML = "";
-    }
     tabla.innerHTML = "";
     pintarCarrito();
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -121,7 +157,11 @@ function pintarFooter() {
     if(total==null){//mas de lo mismo 
         return;
     }
-    total.innerHTML = '$'+ nPrecio;
+    if(Object.keys(carrito).length === 0){
+        total.innerHTML = "¡Animate a comprar algo!";
+        return;
+    }
+    total.innerHTML = '$'+ calPrecio();
 }
 
 pintarCarrito();

@@ -13,9 +13,10 @@ function createProduct(product) {
                 <h1 class="card-title">${product.name}</h1>
                 <br>
                 <p class="card-text" id="code">Codigo: ${product.code}</p>
-                <p class="card-text" >Cantidad disponible: ${product.Quantity}</p>
+                <p class="card-text" >Unidades disponibles: ${product.Quantity}</p>
                 <br>
                 <span class="card-text" id="price">${product.price}</span>
+                <em style="display:none;">${product.Quantity}</em>
                 <br>
                 <button class="btn btn--block" data-id="${product.id}" >Agregar al pedido</button>
             </div>
