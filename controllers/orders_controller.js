@@ -1,5 +1,5 @@
 import { order_service } from "../services/ordernes_service.js";
-
+import { data_user } from "../utilities/navutilities.js";
 const total = document.getElementById("total");
 const tabla = document.getElementById("tabla");
 let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
@@ -148,7 +148,7 @@ function calPrecio() {
     const nPrecio=Object.values(carrito).reduce(( acc, {cantidad, price}) => parseInt(acc) + parseInt(cantidad) * parseInt(price) ,0)
     return nPrecio;
 }
-const nPrecio = calPrecio();
+
 
 
 function pintarFooter() {
@@ -178,10 +178,35 @@ function handleButton(){
 
 
 if(pedir!=null){
-pedir.addEventListener("click", () => {
-    const quantity_per_products = Object.values(carrito).reduce(( cantidad) =>  String.valueOf(cantidad)+"," ,0);
+pedir.addEventListener("click", async () => {
+    const quantity_per_products = Object.values(carrito).map(({cantidad}) => cantidad);
+    const products = Object.values(carrito).map(({id}) => id);
 
-    console.log(quantity_per_products);
+    let productsdecode = ""
+    products.forEach((product) => {
+        productsdecode +=  product+",";
+    });
+
+    let quantity_per_productsdecode = ""
+    quantity_per_products.forEach((quantity) => {
+        quantity_per_productsdecode += quantity+",";
+    });
+
+    const fecha = new Date();
+
+    const Response = await order_service.create_order(data_user.id,data_user.name,data_user.phone,"tucasa",quantity_per_productsdecode.substring(0, quantity_per_productsdecode.length - 1),productsdecode.substring(0, productsdecode.length - 1),"Emited",fecha.getDate(),calPrecio());
+
+    if(Response.status==201){
+        await Swal.fire({
+            icon: 'success',
+            title: 'Pedido realizado',
+            text: 'Tu pedido se ha realizado con exito!',
+        })
+        localStorage.clear();
+        window.location.href = "https://sebastiansoto18.github.io/FrontTienda/pages/home";
+    }
+    
+
 })
 }
 
