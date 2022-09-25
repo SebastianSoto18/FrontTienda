@@ -43,7 +43,7 @@ img {
     color: #696969;
     padding: 0.5rem;
     text-transform: lowercase;
-    transition: all 2s;
+    transition: all 0.5s;
 }
 
 .btn:hover {
