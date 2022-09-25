@@ -3,6 +3,7 @@ let carrito = {};
 
 const addcarrito= (e) => {
 
+    console.log(e.target.classlist)
     if(e.target.classlist.contains("btn")){
         setCarrito(e.target.parentElement);
     }
