@@ -48,6 +48,6 @@ singup.addEventListener("click",async  (e) => {
     });
 
 
-    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/index.html";
+    window.location.href = "https://sebastiansoto18.github.io/FrontTienda/index";
 
 });
