@@ -33,7 +33,7 @@ const generarlistas = async (parent, order) => {
         <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">Nombre del producto: ${element.name_product}</li>
         <li class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">Cantidad comprada: ${element.quantity} </li>
         <li class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">precio por producto: ${element.price}</li>
-        <li class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">precio por producto: ${element.total}</li>
+        <li class="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">total gastasdo en el producto: ${element.total}</li>
         </ul>
         `;
     });
