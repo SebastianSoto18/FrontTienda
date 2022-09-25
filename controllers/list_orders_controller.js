@@ -74,7 +74,7 @@ let orders = await order_service.getorderByID(data_user.id);
 
 if (orders.status == 200) {
   let ordersdecode = await orders.json();
-
+  document.querySelector("#nocontent").style = "display:none";
   ordersdecode.forEach(async (order) => {
     await genttarjetas(order.id, order);
   });
