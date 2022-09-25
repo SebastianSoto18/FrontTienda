@@ -37,7 +37,6 @@ const setCarrito = (product, output) => {
         
         if(!(carrito[productInfo.id].cantidad < parseInt(carrito[productInfo.id].maxcantidad))){
             Swal.fire({
-                position: 'top-end',
                 icon: 'error',
                 title: 'te haz pasado de la cantidad maxima de productos, se a colocado la cantidad maxima de stock en su lugar'
             });
@@ -56,9 +55,7 @@ const setCarrito = (product, output) => {
     if (output) {
         pintarCarrito();
     }
-
     Swal.fire({
-        position: 'top-end',
         icon: 'success',
         title: 'Producto agregado al carrito',
         showConfirmButton: false,
