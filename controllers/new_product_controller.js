@@ -12,8 +12,9 @@ np.addEventListener("submit", async (e) => {
     const Quantity = document.getElementById("Quantity").value;
 
     const response = await products_service.create_product(name, code, price, Quantity);
-        
-    if(!(response.status==200)){
+    
+
+    if(!(response.status==201)){
     Swal.fire({
             text:"El codigo del producto ya existe"+'!',
             icon: "error"
