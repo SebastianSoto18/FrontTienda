@@ -105,7 +105,7 @@ function disminuir(e) {
 
 function calPrecio() {
     if(Object.keys(carrito).length === 0){
-        if(total==null){
+        if(total==null){//esto a causa del error antes mencionado
             return;
         }
         total.innerHTML = "";
@@ -118,7 +118,7 @@ const nPrecio = calPrecio();
 
 
 function pintarFooter() {
-    if(total==null){
+    if(total==null){//mas de lo mismo 
         return;
     }
     total.innerHTML = '$'+ nPrecio;
