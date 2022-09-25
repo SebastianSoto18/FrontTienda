@@ -15,7 +15,7 @@ function createProduct(product) {
                 <p class="card-text">Cantidad: ${product.Quantity}</p>
                 <p class="card-text">$${product.price}</p>
                 <br>
-                <button class="btn btn--block" >Agregar al pedido</button>
+                <button class="btn btn--block" id="agregar" >Agregar al pedido</button>
             </div>
         </div>
     `;
@@ -28,5 +28,11 @@ const products = await products_service.getproducts().then(response => response.
 
 products.forEach(product => {
     lista.appendChild( createProduct(product) );
-}
-);
+});
+
+const agregar = document.getElementById("agregar");
+
+agregar.addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log(e.target.parentElement);
+});
