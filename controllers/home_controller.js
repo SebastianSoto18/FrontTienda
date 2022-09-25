@@ -1,6 +1,6 @@
 import { products_service } from "../services/product_services.js";
 
-const lista=document.getElementById("content-productos"); 
+const lista=document.getElementById("productos"); 
 
 function createProduct(product) {
     const li = document.createElement("li");
