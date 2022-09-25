@@ -2,6 +2,9 @@ import { order_service } from "../services/ordernes_service.js";
 import { order_details_service } from "../services/order_deatils_service.js";
 import { data_user } from "../utilities/navutilities.js";
 let tarjeta = document.querySelector("#accordion-arrow-icon");
+let total=0;
+let status=0;
+let date=0;
 
 const genttarjetas = async (id, order) => {
   tarjeta.innerHTML += `
@@ -21,6 +24,8 @@ const generarlistas = async (parent, order) => {
     let listadiv= `<div id="accordion-arrow-icon-body-${order}" aria-labelledby="accordion-arrow-icon-heading-${order}">
                     <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
     `;
+
+
     
     let data_detail = await order_details_service.get_details(order);
     let datajson = await data_detail.json();
@@ -41,11 +46,11 @@ const generarlistas = async (parent, order) => {
     
     let factura="";
     const dataventa = await order_service.getorderbyID(order);
-    const datajsonventa = await dataventa.json();
-    console.log(datajsonventa);
-    factura += `<h1>Total de compra:${datajsonventa.total}</h1>`
-    factura += `<h1>Fecha de compra:${datajsonventa.date}</h1>`
-    factura += `<h1>Estado de compra:${datajsonventa.status}</h1>`
+    console.log(dataventa);
+
+    factura += `<h1>Total de compra:${total}</h1>`
+    factura += `<h1>Fecha de compra:${date}</h1>`
+    factura += `<h1>Estado de compra:${status}</h1>`
     
     
     Swal.fire({
@@ -74,6 +79,7 @@ if (orders.status == 200) {
   let ordersdecode = await orders.json();
   document.querySelector("#nocontent").style = "display:none";
   ordersdecode.forEach(async (order) => {
+
     await genttarjetas(order.id, order);
   });
 }
