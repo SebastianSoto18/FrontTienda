@@ -1,6 +1,6 @@
 import { order_service } from "../services/ordernes_service.js";
 import { order_details_service } from "../services/order_deatils_service.js";
-
+import { data_user } from "../utilities/navutilities.js";
 let tarjeta = document.querySelector("#accordion-arrow-icon");
 
 const genttarjetas = async (id, order) => {
@@ -70,7 +70,7 @@ tarjeta.addEventListener("click", async (e) => {
 });
 
 
-let orders = await order_service.getorders();
+let orders = await order_service.getorderByID(data_user.id);
 
 if (orders.status == 200) {
   let ordersdecode = await orders.json();
