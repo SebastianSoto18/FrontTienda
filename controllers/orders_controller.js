@@ -1,4 +1,4 @@
-
+import { order_service } from "../services/ordernes_service.js";
 
 const total = document.getElementById("total");
 const tabla = document.getElementById("tabla");

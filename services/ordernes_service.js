@@ -1,6 +1,6 @@
 
 
-const create_order = (id,name, phone, address,quantity_per_products,products,status,date,total) => fetch("https://tiendarest.herokuapp.com/products",
+const create_order = (id,name, phone, address,quantity_per_products,products,status,date,total) => fetch("https://tiendarest.herokuapp.com/orders",
 {method: "POST",
 headers:{
     "Content-type": "application/json",
