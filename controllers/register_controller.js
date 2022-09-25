@@ -42,6 +42,16 @@ singup.addEventListener("click",async  (e) => {
         }
     }
 
+    const isValidMail  = new RegExp('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+
+    if(!isValidMail.test(email)){
+        Swal.fire({
+            text:"El correo no es valido"+'!',
+            icon: "error"
+        });
+        return;
+    }
+
     await Swal.fire({
         text:"Usuario registrado con exito"+'!',
         icon: "success"
