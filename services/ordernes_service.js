@@ -18,7 +18,7 @@ headers:{
 }})
 
 
-const getbyorder = (id) => fetch("https://tiendarest.herokuapp.com/orders/"+id,
+const getbyorder = (id) => fetch("https://tiendarest.herokuapp.com/orders/"+id.toString(),
 {method: "GET",
 headers:{
     "Content-type": "application/json",
