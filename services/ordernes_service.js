@@ -36,4 +36,4 @@ const getorderbyclientID = (id) => fetch("https://tiendarest.herokuapp.com/order
         });
 
 
-export const order_service = {create_order,getorders,getorderbyclientIDID,getorderbyID};
+export const order_service = {create_order,getorders,getorderbyclientID,getorderbyID};
