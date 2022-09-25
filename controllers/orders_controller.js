@@ -129,6 +129,10 @@ function disminuir(e) {
         delete carrito[e.querySelector("#id").textContent];
     }
 
+    if(Object.keys(carrito).length == 0){
+        pedir.style.display = "none";
+    }
+
     tabla.innerHTML = "";
     pintarCarrito();
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -167,8 +171,6 @@ pintarCarrito();
 if(pedir!=null){
     if(Object.keys(carrito).length > 0){
     pedir.style.display = "block";
-    }else{
-    pedir.style.display = "none";
     }
 }
 
