@@ -36,5 +36,6 @@ const agregar = document.getElementById("agregar");
 
 agregar.addEventListener("click", async (e) => {
     e.preventDefault();
+    console.log(1);
     console.log(e.target.parentElement);
 });
