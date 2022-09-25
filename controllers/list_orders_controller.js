@@ -42,7 +42,7 @@ const generarlistas = async (parent, order) => {
     let factura="";
     const dataventa = await order_service.getorderbyID(order);
     const datajsonventa = await dataventa.json();
-    
+    console.log(datajsonventa);
     factura += `<h1>Total de compra:${datajsonventa.total}</h1>`
     factura += `<h1>Fecha de compra:${datajsonventa.date}</h1>`
     factura += `<h1>Estado de compra:${datajsonventa.status}</h1>`
