@@ -167,6 +167,8 @@ pintarCarrito();
 if(pedir!=null){
     if(Object.keys(carrito).length > 0){
     pedir.style.display = "block";
+    }else{
+    pedir.style.display = "none";
     }
 }
 
