@@ -192,9 +192,10 @@ pedir.addEventListener("click", async () => {
         quantity_per_productsdecode += quantity+",";
     });
 
-    const fecha = new Date();
-
-    const Response = await order_service.create_order(data_user.id,data_user.name,data_user.phone,"tucasa",quantity_per_productsdecode.substring(0, quantity_per_productsdecode.length - 1),productsdecode.substring(0, productsdecode.length - 1),"Emited",fecha.getDate(),calPrecio());
+    const date = new Date();
+    const [month, day, year]       = [date.getMonth(), date.getDate(), date.getFullYear()];
+    const fecha = `${day}-${month}-${year}`;
+    const Response = await order_service.create_order(data_user.id,data_user.name,data_user.phone,"tucasa",quantity_per_productsdecode.substring(0, quantity_per_productsdecode.length - 1),productsdecode.substring(0, productsdecode.length - 1),"Emited",fecha,calPrecio());
 
     if(Response.status==201){
         await Swal.fire({
