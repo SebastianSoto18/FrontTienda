@@ -11,6 +11,14 @@ np.addEventListener("submit", async (e) => {
     const price = document.getElementById("price").value;
     const Quantity = document.getElementById("Quantity").value;
 
+    if( parseInt(code) < 0 || parseInt(price) < 0 || parseInt(Quantity) < 0){
+        Swal.fire({
+            text:"los campos no pueden ser negativos",
+            icon:"error"
+        });
+        return;
+    }
+
     const response = await products_service.create_product(name, code, price, Quantity);
     
 
