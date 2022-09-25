@@ -92,19 +92,25 @@ function disminuir(e) {
         delete carrito[e.querySelector("#id").textContent];
     }
 
-    tabla.innerHTML = "";
-    pintarCarrito();
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-
     if(Object.keys(carrito).length === 0){
         total.innerHTML = "";
     }
-
+    tabla.innerHTML = "";
+    pintarCarrito();
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    
 }
 
 
-const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
-const nPrecio = Object.values(carrito).reduce(( acc, {cantidad, price}) => parseInt(acc) + parseInt(cantidad) * parseInt(price) ,0)
+function calPrecio() {
+    if(Object.keys(carrito).length === 0){
+        total.innerHTML = "";
+        return;
+    }
+    const nPrecio=Object.values(carrito).reduce(( acc, {cantidad, price}) => parseInt(acc) + parseInt(cantidad) * parseInt(price) ,0)
+    return nPrecio;
+}
+const nPrecio = calPrecio();
 
 
 function pintarFooter() {
