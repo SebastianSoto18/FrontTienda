@@ -179,25 +179,9 @@ function handleButton(){
 
 if(pedir!=null){
 pedir.addEventListener("click", () => {
-    Swal.fire({
-        title: '¿Estas seguro de realizar el pedido?',
-        showDenyButton: true,
-        confirmButtonText: `Si`,
-        denyButtonText: `No`,
-    }).then((result) => {
-        if (result.isConfirmed) {
+    const quantity_per_products = Object.values(carrito).reduce(( cantidad) =>  String.valueOf(cantidad)+"," ,0);
 
-            const quantity_per_products = Object.values(carrito).reduce(( cantidad) =>  String.valueOf(cantidad)+"," ,0);
-
-            console.log(quantity_per_products);
-
-           await  Swal.fire('Pedido realizado', '', 'success')
-            localStorage.clear();
-            location.reload();
-        } else if (result.isDenied) {
-            Swal.fire('Pedido cancelado', '', 'info')
-        }
-    })
+    console.log(quantity_per_products);
 })
 }
 
