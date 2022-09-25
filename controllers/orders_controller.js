@@ -2,7 +2,7 @@ const total = document.getElementById("total");
 const cantidaproductos = document.getElementById("cantidadproductos");
 const tabla = document.getElementById("tabla");
 let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
-
+const pedir = document.getElementById("pedir");
 
 
 
@@ -162,6 +162,15 @@ function pintarFooter() {
 }
 
 pintarCarrito();
+
+
+if(pedir!=null){
+    if(Object.keys(carrito).length > 0){
+    pedir.style.display = "block";
+    }
+}
+
+
 
 export const carrito_controller = {addcarrito, setCarrito};
 
