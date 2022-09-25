@@ -4,6 +4,7 @@ const np = document.getElementById("np");
 
 np.addEventListener("submit", async (e) => {
 
+    e.preventDefault();
 
     const name = document.getElementById("name").value;
     const code = document.getElementById("code").value;
