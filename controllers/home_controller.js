@@ -1,6 +1,6 @@
 import { products_service } from "../services/product_services.js";
 
-const lista=document.getElementById("productos"); 
+const lista=document.getElementById("content-productos"); 
 
 function createProduct(product) {
     const li = document.createElement("li");
@@ -31,9 +31,8 @@ products.forEach(product => {
     lista.appendChild( createProduct(product) );
 });
 
-const agregar = document.getElementById("content-productos");
 
-agregar.addEventListener("click", async (e) => {
+lista.addEventListener("click", async (e) => {
     addcarrito(e);
 });
 
