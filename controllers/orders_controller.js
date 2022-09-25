@@ -105,6 +105,9 @@ function disminuir(e) {
 
 function calPrecio() {
     if(Object.keys(carrito).length === 0){
+        if(total==null){
+            return;
+        }
         total.innerHTML = "";
         return;
     }
@@ -115,6 +118,9 @@ const nPrecio = calPrecio();
 
 
 function pintarFooter() {
+    if(total==null){
+        return;
+    }
     total.innerHTML = '$'+ nPrecio;
 }
 
