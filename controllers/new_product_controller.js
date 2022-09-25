@@ -11,13 +11,14 @@ np.addEventListener("submit", async (e) => {
     const price = document.getElementById("price").value;
     const Quantity = document.getElementById("Quantity").value;
 
-    response = await products_service.create_product(name, code, price, Quantity);
+    const response = await products_service.create_product(name, code, price, Quantity);
         
     if(!(response.status==200)){
     Swal.fire({
-            text:"Error al crear el producto"+'!',
+            text:"El codigo del producto ya existe"+'!',
             icon: "error"
         });
+        return;
     }
 
     Swal.fire({
