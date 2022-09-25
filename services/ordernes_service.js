@@ -18,7 +18,7 @@ headers:{
 }})
 
 
-const getorderbyID = (id) => fetch("https://tiendarest.herokuapp.com/orders/"+id,
+const getbyorder = (id) => fetch("https://tiendarest.herokuapp.com/orders/"+id,
 {method: "GET",
 headers:{
     "Content-type": "application/json",
@@ -27,7 +27,7 @@ headers:{
 
 
 
-const getorderbyclientID = (id) => fetch("https://tiendarest.herokuapp.com/orders/client"+id,
+const getbyclient = (id) => fetch("https://tiendarest.herokuapp.com/orders/client"+id,
         {method: "GET",
         headers:{
             "Content-type": "application/json",
@@ -36,4 +36,4 @@ const getorderbyclientID = (id) => fetch("https://tiendarest.herokuapp.com/order
         });
 
 
-export const order_service = {create_order,getorders,getorderbyclientID,getorderbyID};
+export const order_service = {create_order,getorders,getbyorder,getbyclient};

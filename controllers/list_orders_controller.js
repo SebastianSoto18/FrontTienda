@@ -46,7 +46,7 @@ const generarlistas = async (parent, order) => {
     
     let factura="";
     console.log(order);
-    const dataventa = await order_service.getorderbyID(order);
+    const dataventa = await order_service.getbyorder(order);
     console.log(dataventa);
 
     factura += `<h1>Total de compra:${total}</h1>`
@@ -74,7 +74,7 @@ tarjeta.addEventListener("click", async (e) => {
 });
 
 
-let orders = await order_service.getorderbyclientID(data_user.id);
+let orders = await order_service.getbyclient(data_user.id);
 
 if (orders.status == 200) {
   let ordersdecode = await orders.json();
