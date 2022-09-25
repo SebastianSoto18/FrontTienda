@@ -1,4 +1,5 @@
 import { products_service } from "../services/product_services.js";
+import { carrito_controller } from "../controllers/orders_controller.js";
 
 const lista=document.getElementById("productos"); 
 
@@ -33,12 +34,7 @@ products.forEach(product => {
 
 
 lista.addEventListener("click", async (e) => {
-    addcarrito(e);
+    carrito_controller.addcarrito(e);
 });
 
 
-const addcarrito= (e) => {
-    e.preventDefault();
-    console.log(1);
-    console.log(e.target.parentElement);
-}
