@@ -64,8 +64,9 @@ function pintarCarrito() {
 }
 
 
-console.log(tabla);
-
+//error cousado por github pages,debido a que segun el, la tabla esta nula en una parte de la pagina donde ni siquiera se llama el archivo
+if(tabla==null){
+}else{
 tabla.addEventListener("click", (e) => {
     console.log(e);
     if(e.path[0].id == "aumentar"){
@@ -75,7 +76,7 @@ tabla.addEventListener("click", (e) => {
         disminuir(e.target.parentElement.parentElement);
     }
 });
-
+}
 function aumentar(e) {
     carrito[e.querySelector("#id").textContent].cantidad+=1;
     tabla.innerHTML = "";
