@@ -124,17 +124,13 @@ function aumentar(e) {
 function disminuir(e) {
     carrito[e.querySelector("#id").textContent].cantidad-=1;
 
-
     if(carrito[e.querySelector("#id").textContent].cantidad == 0){
         delete carrito[e.querySelector("#id").textContent];
     }
 
-    if(Object.keys(carrito).length == 0){
-        pedir.style.display = "none";
-    }
-
     tabla.innerHTML = "";
     pintarCarrito();
+    handleButton();
     localStorage.setItem('carrito', JSON.stringify(carrito))
     
 }
@@ -168,13 +164,20 @@ function pintarFooter() {
 pintarCarrito();
 
 
-if(pedir!=null){
-    if(Object.keys(carrito).length > 0){
-    pedir.style.display = "block";
+function handleButton(){
+    if(pedir!=null){
+        if(Object.keys(carrito).length > 0){
+            pedir.style.display = "block";
+        }else{
+            console.log(1)
+            pedir.style.display = "none";
+        }
     }
 }
 
 
+
+handleButton();
 
 export const carrito_controller = {addcarrito, setCarrito};
 
