@@ -11,13 +11,12 @@ function createProduct(product) {
             <div class="card__content">
                 <h1 class="card-title">${product.name}</h1>
                 <br>
-                <span id="id" style="display:none">${product.id}</span>
                 <p class="card-text">Codigo: ${product.code}</p>
                 <p class="card-text">Cantidad disponible: ${product.Quantity}</p>
                 <br>
                 <p class="card-text">$${product.price}</p>
                 <br>
-                <button class="btn btn--block" id="agregar" >Agregar al pedido</button>
+                <button class="btn btn--block" data-id="${product.id}" >Agregar al pedido</button>
             </div>
         </div>
     `;
@@ -32,10 +31,15 @@ products.forEach(product => {
     lista.appendChild( createProduct(product) );
 });
 
-const agregar = document.getElementById("agregar");
+const agregar = document.getElementById("content-productos");
 
 agregar.addEventListener("click", async (e) => {
+    addcarrito(e);
+});
+
+
+const addcarrito= (e) => {
     e.preventDefault();
     console.log(1);
     console.log(e.target.parentElement);
-});
+}
