@@ -182,7 +182,6 @@ pedir.addEventListener("click", () => {
     Swal.fire({
         title: '¿Estas seguro de realizar el pedido?',
         showDenyButton: true,
-        showCancelButton: true,
         confirmButtonText: `Si`,
         denyButtonText: `No`,
     }).then((result) => {
@@ -192,7 +191,7 @@ pedir.addEventListener("click", () => {
 
             console.log(quantity_per_products);
 
-            Swal.fire('Pedido realizado', '', 'success')
+           await  Swal.fire('Pedido realizado', '', 'success')
             localStorage.clear();
             location.reload();
         } else if (result.isDenied) {
