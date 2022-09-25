@@ -10,6 +10,7 @@ function createProduct(product) {
             <img src="../img/descarga.jpeg" alt="" srcset="">
             <div class="card__content">
                 <h1 class="card-title">${product.name}</h1>
+                <span id="id" style="display:none">${product.id}</span>
                 <p class="card-text">Codigo: ${product.code}</p>
                 <p class="card-text">Cantidad: ${product.Quantity}</p>
                 <p class="card-text">$${product.price}</p>
