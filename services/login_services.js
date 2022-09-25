@@ -8,10 +8,10 @@ const login=  (email, password) => fetch("https://tiendarest.herokuapp.com/login
         });
 
 
-const register = (email, password, name, phone) => fetch("https://tiendarest.herokuapp.com/users",
+const register = (email, password, name, phone, address) => fetch("https://tiendarest.herokuapp.com/users",
         {method: "POST",
         headers:{"Content-type": "application/json"},
-        body: JSON.stringify({name: name, email: email,phone: phone,password: password})});
+        body: JSON.stringify({name: name, email: email,phone: phone,password: password, address: address})});
 
 
 

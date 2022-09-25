@@ -11,8 +11,9 @@ singup.addEventListener("click",async  (e) => {
     const confirm_password = document.getElementById("cpassword").value;
     const name = document.getElementById("usernameregis").value;
     const phone = document.getElementById("phone").value;
+    const address = document.getElementById("dir").value;
 
-    if( !(email != "" && password != "" && confirm_password != "" && name != ""  && phone != "")){
+    if( !(email != "" && password != "" && confirm_password != "" && name != ""  && phone != ""  && address != "")){
         Swal.fire({
             text:"Por favor llene todos los campos"+'!',
             icon: "error"
@@ -29,7 +30,7 @@ singup.addEventListener("click",async  (e) => {
     }
 
 
-    const code= await login_services.register(email, password, name, phone).then( response => response.status );
+    const code= await login_services.register(email, password, name, phone, address).then( response => response.status );
         
     if (!(code == 201)){
         if(code == 400){
@@ -42,7 +43,7 @@ singup.addEventListener("click",async  (e) => {
         }
     }
 
-    const isValidMail  = new RegExp('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    const isValidMail  = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ig;
 
     if(!isValidMail.test(email)){
         Swal.fire({
