@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/newproduct.css" >
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css"/>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-    <title>Nuevo producto</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Tus pedidos</title>
 </head>
 <body>
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
@@ -42,7 +42,7 @@
         <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
           <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white md:hover:text-blue-700 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <a href="https://sebastiansoto18.github.io/FrontTienda/pages/home" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:bg-transparent md:hover:text-blue-700  md:p-0 dark:text-white" aria-current="page">Catalogo</a>
+              <a href="https://sebastiansoto18.github.io/FrontTienda/pages/home" class="block py-2 pr-4 pl-3 text-gray-700 rounded md:bg-transparent md:hover:text-blue-700  md:p-0 dark:text-white" >Catalogo</a>
             </li>
             <li>
               <a href="https://sebastiansoto18.github.io/FrontTienda/pages/list_orders" id="listpedidos" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Mis pedidos</a>
@@ -57,42 +57,17 @@
         </div>
         </div>
       </nav>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div id="container">
+        <div id="accordion-arrow-icon" data-accordion="open">
 
-    <div class="form nover">
-        <div class="form-toggle"></div>
-        <div class="form-panel one">
-        <div class="form-header">
-            <h1>Crear un producto</h1>
+
         </div>
-        <div class="form-content" id="formu">
-            <form id="np">
-            <div class="form-group">
-                <label for="code">Ingrese el codigo de tu producto</label>
-                <input id="code" type="text" name="code" required="required" maxlength="8"/>
-            </div>
-
-            <div class="form-group">
-                <label for="Quantity">Ingrese cuantas unidades se van a avender</label>
-                <input id="Quantity" type="text" name="Quantity" required="required" />
-            </div>
-
-            <div class="form-group">
-                <label for="name">Ingrese el nombre del producto</label>
-                <input id="name" type="text" name="name" required="required" maxlength="20"/>
-            </div>
-
-            <div class="form-group">
-                <label for="price">Ingrese cuantos es el costo por unidad</label>
-                <input id="price" type="text" name="price" required="required" maxlength="8"/>
-            </div>
-
-            <div class="form-group" id="enviar">
-                <button type="submit">Enviar</button>
-            </div>
-            </form>
-
-
+    </div>
 </body>
 <script type="module" src="../utilities/navutilities.js"></script>
-<script type="module" src="../controllers/new_product_controller.js"></script>
+<script type="module" src="../controllers/list_orders_controller.js"></script>
 </html>

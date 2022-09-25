@@ -10,4 +10,20 @@ body: JSON.stringify({user_id:id,client_name: name,client_phone: phone , client_
 ,quantity_per_products:quantity_per_products,products:products,status:status,date:date,total:total})});
 
 
-export const order_service = {create_order};
+const getorders = () => fetch("https://tiendarest.herokuapp.com/orders",
+{method: "GET",
+headers:{
+    "Content-type": "application/json",
+    "Authorization": "Bearer "+document.cookie.split("=")[1].substring(0,document.cookie.split("=")[1].length-1)
+}})
+
+
+const getorderByID = (id) => fetch("https://tiendarest.herokuapp.com/orders/"+id,
+{method: "GET",
+headers:{
+    "Content-type": "application/json",
+    "Authorization": "Bearer "+document.cookie.split("=")[1].substring(0,document.cookie.split("=")[1].length-1)
+}});
+
+
+export const order_service = {create_order,getorders,getorderByID};
