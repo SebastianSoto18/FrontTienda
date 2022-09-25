@@ -28,7 +28,6 @@ function createProduct(product) {
 
 const products = await products_service.getproducts().then(response => response.json());
 
-
 products.forEach(product => {
     lista.appendChild( createProduct(product) );
 });
