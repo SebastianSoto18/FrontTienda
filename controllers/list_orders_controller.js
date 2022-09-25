@@ -70,7 +70,7 @@ tarjeta.addEventListener("click", async (e) => {
 });
 
 
-let orders = await order_service.getorderByID(data_user.id);
+let orders = await order_service.getorderbyID(data_user.id);
 
 if (orders.status == 200) {
   let ordersdecode = await orders.json();
