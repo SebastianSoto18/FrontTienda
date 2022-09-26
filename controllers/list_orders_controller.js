@@ -1,6 +1,8 @@
 import { order_service } from "../services/ordernes_service.js";
 import { order_details_service } from "../services/order_deatils_service.js";
 import { data_user } from "../utilities/navutilities.js";
+import {handleCantidadProductos} from "../utilities/navutilities.js";
+
 handleCantidadProductos();
 let tarjeta = document.querySelector("#accordion-arrow-icon");
 
