@@ -1,8 +1,10 @@
 import { products_service } from "../services/product_services.js";
 import { carrito_controller } from "../controllers/orders_controller.js";
 import { handleCantidadProductos } from "../utilities/navutilities.js";
-
 const lista=document.getElementById("productos"); 
+
+handleCantidadProductos();
+
 
 function createProduct(product) {
     const li = document.createElement("li");

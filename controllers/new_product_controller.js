@@ -1,6 +1,9 @@
 import { products_service } from "../services/product_services.js";
+import { handleCantidadProductos } from "../utilities/navutilities.js";
 
 const np = document.getElementById("np");
+
+handleCantidadProductos();
 
 np.addEventListener("submit", async (e) => {
 
