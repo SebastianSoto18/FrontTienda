@@ -28,8 +28,34 @@ singup.addEventListener("click",async  (e) => {
         });
         return;
     }
+    
+    const isValidMail  = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ig;
 
-
+    if(!isValidMail.test(email)){
+        Swal.fire({
+            text:"El correo no es valido"+'!',
+            icon: "error"
+        });
+        return;
+    }
+    
+    try{
+        if( parseInt(phone) < 0){
+            Swal.fire({
+                text:"El telefono no puede ser negativo"+'!',
+                icon:"error"
+            });
+            return;
+        }
+    }catch{
+        Swal.fire({
+            text:"El telefono no puede contener letras "+'!',
+            icon:"error"
+        });
+        return;
+    }
+    
+    
     const code= await login_services.register(email, password, name, phone, address).then( response => response.status );
         
     if (!(code == 201)){
@@ -43,15 +69,6 @@ singup.addEventListener("click",async  (e) => {
         }
     }
 
-    const isValidMail  = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ig;
-
-    if(!isValidMail.test(email)){
-        Swal.fire({
-            text:"El correo no es valido"+'!',
-            icon: "error"
-        });
-        return;
-    }
 
     await Swal.fire({
         text:"Usuario registrado con exito"+'!',
