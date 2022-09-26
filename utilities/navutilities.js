@@ -2,9 +2,19 @@ import {user_service} from "../services/user_services.js"
 import { carrito } from "../controllers/orders_controller.js";
 
 
-export function handleCantidadProductos(){
+export function handleCantidadProductos(type){
+    
     const numpedido = document.getElementById("red");
     numpedido.innerHTML= "";
+
+    if(type=="aumentar"){
+        numpedido.innerHTML= Object.keys(carrito).length+1;
+        return;
+    }
+    if(type=="disminuir"){
+        numpedido.innerHTML= Object.keys(carrito).length-1;
+        return;
+    }
     numpedido.innerHTML = Object.keys(carrito).length>0? Object.keys(carrito).length : "";
 }
 

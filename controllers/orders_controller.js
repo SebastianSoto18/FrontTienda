@@ -113,7 +113,7 @@ function aumentar(e) {
         tabla.innerHTML = "";
         pintarCarrito();
         localStorage.setItem('carrito', JSON.stringify(carrito))
-        handleCantidadProductos();
+        handleCantidadProductos(type="aumentar");
     }else{
         Swal.fire({
             icon: 'error',
@@ -121,6 +121,7 @@ function aumentar(e) {
             text: 'No puedes comprar mas de lo que hay en stock!',
         })
     }
+    
 }
 
 
@@ -135,7 +136,7 @@ function disminuir(e) {
     pintarCarrito();
     handleButton();
     localStorage.setItem('carrito', JSON.stringify(carrito))
-    handleCantidadProductos();
+    handleCantidadProductos(type="disminuir");
 }
 
 
