@@ -1,5 +1,6 @@
 import { order_service } from "../services/ordernes_service.js";
 import { data_user } from "../utilities/navutilities.js";
+import { handleCantidadProductos } from "../utilities/navutilities.js";
 const total = document.getElementById("total");
 const tabla = document.getElementById("tabla");
 export let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
@@ -112,6 +113,7 @@ function aumentar(e) {
         tabla.innerHTML = "";
         pintarCarrito();
         localStorage.setItem('carrito', JSON.stringify(carrito))
+        handleCantidadProductos();
     }else{
         Swal.fire({
             icon: 'error',
@@ -133,7 +135,7 @@ function disminuir(e) {
     pintarCarrito();
     handleButton();
     localStorage.setItem('carrito', JSON.stringify(carrito))
-    
+    handleCantidadProductos();
 }
 
 
