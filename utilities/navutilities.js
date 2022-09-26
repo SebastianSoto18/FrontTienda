@@ -2,10 +2,10 @@ import {user_service} from "../services/user_services.js"
 import { carrito } from "../controllers/orders_controller.js";
 
 
-export function handleCantidadProductos() {
+export function handleCantidadProductos(){
     const numpedido = document.getElementById("red");
     numpedido.innerHTML= "";
-    numpedido.innerHTML = Object.keys(carrito).length;
+    numpedido.innerHTML = Object.keys(carrito).length>0? Object.keys(carrito).length : "";
 }
 
 
