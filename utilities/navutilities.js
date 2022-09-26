@@ -6,16 +6,13 @@ export function handleCantidadProductos(type){
     
     const numpedido = document.getElementById("red");
     numpedido.innerHTML= "";
-
-    if(type=="aumentar"){
-        numpedido.innerHTML= Object.keys(carrito).length+1;
-        return;
+    if(Object.keys(carrito).length>0){
+        const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
+        numpedido.innerHTML = nCantidad;
+    }else{
+        numpedido.innerHTML= "";
     }
-    if(type=="disminuir"){
-        numpedido.innerHTML= Object.keys(carrito).length-1;
-        return;
-    }
-    numpedido.innerHTML = Object.keys(carrito).length>0? Object.keys(carrito).length : "";
+   
 }
 
 
