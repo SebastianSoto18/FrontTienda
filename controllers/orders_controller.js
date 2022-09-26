@@ -2,7 +2,7 @@ import { order_service } from "../services/ordernes_service.js";
 import { data_user } from "../utilities/navutilities.js";
 const total = document.getElementById("total");
 const tabla = document.getElementById("tabla");
-let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
+export let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
 const pedir = document.getElementById("pedir");
 
 
