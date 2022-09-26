@@ -113,7 +113,8 @@ function aumentar(e) {
         tabla.innerHTML = "";
         pintarCarrito();
         localStorage.setItem('carrito', JSON.stringify(carrito))
-        handleCantidadProductos(type="aumentar");
+        const type = "aumentar"
+        handleCantidadProductos(type);
     }else{
         Swal.fire({
             icon: 'error',
@@ -136,7 +137,8 @@ function disminuir(e) {
     pintarCarrito();
     handleButton();
     localStorage.setItem('carrito', JSON.stringify(carrito))
-    handleCantidadProductos(type="disminuir");
+    const type = "disminuir"
+    handleCantidadProductos(type);
 }
 
 
