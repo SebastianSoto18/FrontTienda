@@ -5,7 +5,6 @@ const total = document.getElementById("total");
 const tabla = document.getElementById("tabla");
 export let carrito = JSON.parse(localStorage.getItem('carrito')) || {};
 const pedir = document.getElementById("pedir");
-import { handleCantidadProductos } from "../utilities/navutilities.js";
 
 handleCantidadProductos();
 
