@@ -2,8 +2,7 @@ import {user_service} from "../services/user_services.js"
 import { carrito } from "../controllers/orders_controller.js";
 
 
-export function handleCantidadProductos(type){
-    
+export function handleCantidadProductos(type){   
     const numpedido = document.getElementById("red");
     numpedido.innerHTML= "";
     if(Object.keys(carrito).length>0){
